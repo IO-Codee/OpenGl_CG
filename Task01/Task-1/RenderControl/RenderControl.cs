@@ -15,7 +15,7 @@ namespace Task_1
         public RenderControl()
         {
             InitializeComponent();
-            Render += OnRender; // Підключаємо метод рендерингу до події Render
+            Render += OnRender;
 
 
         }
@@ -28,13 +28,13 @@ namespace Task_1
             float y2 = 2f;
             // Очищення екрану
             glClear(GL_COLOR_BUFFER_BIT);
-            glClearColor(0f, 0f, 0f, 1.0f); // Midnight Blue background
+            glClearColor(0f, 0f, 0f, 1.0f); 
 
 
             // Встановлення системи координат
             glLoadIdentity();
             glViewport(0, 0, Width, Height);
-            glOrtho(x1, x2, y1, y2, -10, 10); // Межі системи координат згідно із завданням (+0.5 щоб було видно координати)
+            glOrtho(x1, x2, y1, y2, -10, 10); 
 
 
 
@@ -49,10 +49,10 @@ namespace Task_1
 
         private void DrawFigure()
         {
-            glLineWidth(5); // Товщина ліній
+            glLineWidth(5);
 
             glBegin(GL_LINE_LOOP);
-            glColor(Color.LimeGreen); // Синій контур
+            glColor(Color.LimeGreen); 
 
             // Вершини фігури
 /*
@@ -73,16 +73,16 @@ namespace Task_1
                 glVertex2d(vertex[0], vertex[1]); 
             }
 
-            glEnd(); // Завершуємо малювання
+            glEnd(); 
         }
 
         private void DrawPoints()
         {
-            glPointSize(8); // Розмір точок
+            glPointSize(8); 
             glBegin(GL_POINTS);
             glColor(Color.GreenYellow);
 
-            // Координати точок
+            
             double[][] points = new double[][]
             {
                 new double[] {-3.5, 0},
@@ -92,14 +92,14 @@ namespace Task_1
                 new double[] { -2, -0.5 },
             };
 
-            // Малюємо точки
+            
             foreach (var point in points)
             {
                 glVertex2d(point[0] + 3, point[1]);
             }
             glEnd();
 
-            // Підписуємо координати
+            
             foreach (var point in points)
             {
                 string label = $"({point[0]}, {point[1]})";
@@ -119,11 +119,11 @@ namespace Task_1
             glBegin(GL_LINES);
             glColor(Color.WhiteSmoke);
 
-            // Вісь X
+            // X
             glVertex2d(x1, 0.0);
             glVertex2d(x2, 0.0);
 
-            // Вісь Y
+            // Y
             glVertex2d(0.0, y1);
             glVertex2d(0.0, y2);
 
@@ -143,14 +143,14 @@ namespace Task_1
             glBegin(GL_LINES);
             glColor(Color.White);
 
-            // Горизонтальні лінії
+            // Horizontal
             for (double y = y1; y <= y2; y += 0.5)
             {
                 glVertex2d(x1, y);
                 glVertex2d(x2, y);
             }
 
-            // Вертикальні лінії
+            // Vertical
             for (double x = x1; x <= x2; x += 0.5)
             {
                 glVertex2d(x, y1);
