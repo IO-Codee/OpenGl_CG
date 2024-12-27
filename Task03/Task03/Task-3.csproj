@@ -1,0 +1,51 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net6.0-windows</TargetFramework>
+    <UseWindowsForms>true</UseWindowsForms>
+    <ApplicationIcon>RenderControl.ico</ApplicationIcon>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="RenderControl.cs" />
+    <Compile Remove="RenderControl.Designer.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="RenderControl.bmp" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="RenderControl.bmp" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="MainForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="OpenGL\OpenGL.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="OpenGL\OpenGL.GL.cs">
+      <DependentUpon>OpenGL.cs</DependentUpon>
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="OpenGL\OpenGL.GLU.cs">
+      <DependentUpon>OpenGL.cs</DependentUpon>
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="OpenGL\OpenGL.Text.cs">
+      <DependentUpon>OpenGL.cs</DependentUpon>
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="OpenGL\OpenGL.WGL.cs">
+      <DependentUpon>OpenGL.cs</DependentUpon>
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="RenderControl\RenderControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+  </ItemGroup>
+
+</Project>
